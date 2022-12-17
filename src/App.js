@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
+import Nav from './components/Nav';
+import HeroSection from './components/HeroSection';
+import Card from './components/Card';
+// import img from './img/katie-zaferes.png';
+import data from './Data/data.js';
+
 
 function App() {
+  console.log("not working i guess");
+  const cardArray = data.map(obj=> {
+    return <Card 
+      key = {obj.id}
+      {...obj}
+
+    />
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav />
+
+      <HeroSection />
+
+      <section className="card-list">
+        {cardArray}
+      </section>
+
+      
     </div>
   );
 }
